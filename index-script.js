@@ -2,7 +2,7 @@ const searchInput = document.getElementById("search-input");
 const apiKey = "AIzaSyA3ZNg-GPr1hlyS6waxBKNg0Dsr-oTbErI";
 localStorage.setItem("api_Key", apiKey);
 
-const container = document.getElementById("video-container");
+const container = document.getElementById("container");
 
 //YouTube GET API:  https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=[query]&key=[YOUR_API_KEY]
 
@@ -74,16 +74,28 @@ function showThumbNails(items) {
     let imageUrl = videoItem.snippet.thumbnails.high.url;
     let videoElement = document.createElement("div");
 
+    videoElement.classList.add('video-content');
     videoElement.addEventListener("click", () => {
       navigateToVideo(videoItem.id.videoId);
     });
 
     let videoChildren = `
-        <div class="visual"><img src="${imageUrl}"/>
-        <b>${formatDuration(videoItem.duration)}</b></div>
-        <div class="details"><p class="title">${videoItem.snippet.title}</p>
-        <p class="channel-name">${videoItem.snippet.channelTitle}</p>
-        <p class="view-count">${videoItem.videoStats ? getViews(videoItem.videoStats.viewCount) + "Views": "NA"}</p></div>
+        <a href="#" class="visual">
+          <img src="${imageUrl}" class="thumbnail"/>
+          <b>${formatDuration(videoItem.duration)}</b>
+        </a>
+        <div class="details flex-div">
+          <img src="assets/images/Profile.png">
+          <div>
+            <div class="title">
+              <a href="#">${videoItem.snippet.title}</a>
+            </div>
+            <div>
+              <p class="channel-name">${videoItem.snippet.channelTitle}</p>
+              <p class="view-count">${videoItem.videoStats ? getViews(videoItem.videoStats.viewCount) + " views": "NA"}</p>
+            </div>
+          </div>
+        </div>
     `;
     videoElement.innerHTML = videoChildren ;
     container.append(videoElement);
@@ -93,7 +105,11 @@ function showThumbNails(items) {
 
 
 async function fetchVideos(query) {
-  let apiEndPoint = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${query}&key=${apiKey}`;
+  let apiEndPoint;
+  if(query == "MP") {
+    apiEndPoint = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=20&key=${apiKey}`
+  }
+  apiEndPoint = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${query}&key=${apiKey}`;
 
   try {
       let response = await fetch(apiEndPoint);
@@ -120,6 +136,8 @@ async function fetchVideos(query) {
 function searchVideos() {
   let searchValue = searchInput.value;
   // Fetch videos from youtube API
+  if(searchValue == "")
+    fetchVideos("MP");
   fetchVideos(searchValue);
 }
 

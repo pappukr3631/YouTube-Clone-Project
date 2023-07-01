@@ -8,6 +8,57 @@
     <link rel="stylesheet" href="video-style.css">
 </head>
 <body>
+
+    <nav class="flex-div">
+        <!-- Left Youtube Logo Section -->
+        <div class="nav-left flex-div">
+            <img
+                src="assets/images/hamburger-icon.png"
+                alt="hamburger-icon"
+            />
+            <a href="index.html"
+                ><img
+                    src="assets/images/youtube-logo.png"
+                    alt="YouTube-Logo"
+            /></a>
+        </div>
+        <!-- Middle Search Section -->
+        <div class="nav-middle flex-div">
+            <div class="box flex-div">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search"
+                />
+                <a onclick="searchVideos()">
+                    <img
+                        src="assets/images/SearchBox-Button.png"
+                        alt="search-button"
+                        style="width: 64px; height: 40px"
+                    />
+                </a>
+            </div>
+            <div><img
+                src="/assets/images/mic-icon.png"
+                alt="mic icon"
+            /></div>
+        </div>
+        <!-- Right Login Section -->
+        <div id="nav-right">
+            <img src="assets/images/create-icon.png" alt="Create-icon" />
+            <img src="assets/images/Apps.png" alt="Create-icon" />
+            <img
+                src="assets/images/notification-icon.png"
+                alt="Create-icon"
+            />
+            <img
+                src="assets/images/Profile.png"
+                alt="Create-icon"
+            />
+        </div>
+    </nav>
+
+    <!-- Video Player Container -->
     <section class="root-container">
         <div>
             <div id="player"></div>
