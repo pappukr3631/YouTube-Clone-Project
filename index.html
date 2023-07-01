@@ -1,21 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTubeClone</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="searchSection">
-        <input type="text" id="search-input" placeholder="Search">
-        <button onclick="searchVideos()">Search</button>
-    </div>
-    <!-- Video Section Below -->
-    <section id="video-container">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>YouTubeClone</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="flex-div">
+            <!-- Left Youtube Logo Section -->
+            <div class="nav-left flex-div">
+                <img
+                    src="assets/images/hamburger-icon.png"
+                    alt="hamburger-icon"
+                />
+                <a href="index.html"
+                    ><img
+                        src="assets/images/youtube-logo.png"
+                        alt="YouTube-Logo"
+                /></a>
+            </div>
+            <!-- Middle Search Section -->
+            <div class="nav-middle flex-div">
+                <div class="box flex-div">
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="Search"
+                    />
+                    <a onclick="searchVideos()">
+                        <img
+                            src="assets/images/SearchBox-Button.png"
+                            alt="search-button"
+                            style="width: 64px; height: 40px"
+                        />
+                    </a>
+                </div>
+                <div><img
+                    src="/assets/images/mic-icon.png"
+                    alt="mic icon"
+                /></div>
+            </div>
+            <!-- Right Login Section -->
+            <div id="nav-right">
+                <img src="assets/images/create-icon.png" alt="Create-icon" />
+                <img src="assets/images/Apps.png" alt="Create-icon" />
+                <img
+                    src="assets/images/notification-icon.png"
+                    alt="Create-icon"
+                />
+                <img
+                    src="assets/images/Profile.png"
+                    alt="Create-icon"
+                />
+            </div>
+        </nav>
 
-    </section>
-    <script src="index-script.js"></script>
-</body>
+        <!-- Left pannel -->
+        <div class="left-pannel">
+            <img
+                src="assets/images/Sidebar.png"
+                alt=""
+            />
+        </div>
+
+        <!-- Top Menu -->
+        <div class="top-menu">
+            <img src="assets/images/Top-Menu.png" alt="">
+        </div>
+
+        <!-- Main content -->
+
+        <main id="video-container">
+            <div>
+                <div class="visual">
+                    <img src="/assets/thumpnail.webp" />
+                    <b>22:25</b>
+                </div>
+                <div class="details">
+                    <p class="title">Title</p>
+                    <p class="channel-name">
+                        Channel Name
+                    </p>
+                    <p class="view-count">
+                        1020views
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="visual">
+                    <img src="/assets/thumpnail.webp" />
+                    <b>22:25</b>
+                </div>
+                <div class="details">
+                    <p class="title">Title</p>
+                    <p class="channel-name">
+                        Channel Name
+                    </p>
+                    <p class="view-count">
+                        1020views
+                    </p>
+                </div>
+            </div>
+            
+        </main>
+        <!-- Script -->
+        <!-- <script src="index-script.js"></script> -->
+    </body>
 </html>

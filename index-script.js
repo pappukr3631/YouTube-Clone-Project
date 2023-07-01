@@ -66,8 +66,8 @@ function navigateToVideo(videoId){
 
 function showThumbNails(items) {
   container.innerHTML = "";
-  console.log('Thumbnail');
-  console.log(items);
+  // console.log('Thumbnail');
+  // console.log(items);
 
   for (let i=0; i<items.length; i++) {
     let videoItem = items[i];
@@ -93,7 +93,7 @@ function showThumbNails(items) {
 
 
 async function fetchVideos(query) {
-  let apiEndPoint = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&q=${query}&key=${apiKey}`;
+  let apiEndPoint = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${query}&key=${apiKey}`;
 
   try {
       let response = await fetch(apiEndPoint);
@@ -122,3 +122,5 @@ function searchVideos() {
   // Fetch videos from youtube API
   fetchVideos(searchValue);
 }
+
+searchVideos();
